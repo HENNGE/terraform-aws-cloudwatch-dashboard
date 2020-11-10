@@ -3,15 +3,16 @@ locals {
     for dimensionName, dimensionValue in var.dimensions : [dimensionName, dimensionValue]
   ])
   rendering_properties = {
+    accountId  = var.accountId
     expression = var.expression
-    color      = var.color
+    id         = var.id
     label      = var.label
+    region     = var.region
+    color      = var.color
     period     = var.period
     stat       = var.stat
     visible    = var.visible
     yAxis      = var.yAxis
-    region     = var.region
-    accountId  = var.accountId
   }
   clean_rendering_properties = { for k, v in local.rendering_properties : k => v if v != null }
   metric_array = flatten([
