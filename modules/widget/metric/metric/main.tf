@@ -11,6 +11,7 @@ locals {
     visible    = var.visible
     yAxis      = var.yAxis
     region     = var.region
+    accountId  = var.accountId
   }
   clean_rendering_properties = { for k, v in local.rendering_properties : k => v if v != null }
   metric_array = flatten([
