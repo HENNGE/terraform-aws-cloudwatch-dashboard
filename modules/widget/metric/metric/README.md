@@ -3,6 +3,7 @@
 Terraform helper module to describe metric inside metrics array in metric widget in a more documented way.
 
 Basically AWS wants this kind of format as specified [here](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/CloudWatch-Dashboard-Body-Structure.html#CloudWatch-Dashboard-Properties-Metrics-Array-Format):
+
 `[Namespace, MetricName, [{DimensionName,DimensionValue}...] [Rendering Properties Object] ]`
 
 or
