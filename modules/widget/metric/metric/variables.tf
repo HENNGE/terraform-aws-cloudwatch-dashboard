@@ -23,7 +23,7 @@ variable "expression" {
 }
 
 variable "dimensions" {
-  description = "Map of { DimensionName = DimensionValue, ... } for the metric. e.g. { TargetGroup = \"targetgroup/hoge-tg/abcdef1234567890\", LoadBalancer = \"app/hoge-alb/0123456789abcdef\" }"
+  description = "Map of `{ DimensionName = DimensionValue, ... }` for the metric. e.g. `{ TargetGroup = \"targetgroup/hoge-tg/abcdef1234567890\", LoadBalancer = \"app/hoge-alb/0123456789abcdef\" }`"
   type        = any
   default     = null
 }

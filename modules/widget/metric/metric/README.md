@@ -113,7 +113,7 @@ No provider.
 |------|-------------|------|---------|:--------:|
 | accountId | Specifies the AWS account ID where this metric comes from. This enables you to create a widget that contains metrics from multiple accounts on a cross-account dashboard. If you omit this, the current account is used as the default. | `string` | `null` | no |
 | color | The six-digit HTML hex color code to be used for this metric. | `string` | `null` | no |
-| dimensions | Map of { DimensionName = DimensionValue, ... } for the metric. e.g. { TargetGroup = "targetgroup/hoge-tg/abcdef1234567890", LoadBalancer = "app/hoge-alb/0123456789abcdef" } | `any` | `null` | no |
+| dimensions | Map of `{ DimensionName = DimensionValue, ... }` for the metric. e.g. `{ TargetGroup = "targetgroup/hoge-tg/abcdef1234567890", LoadBalancer = "app/hoge-alb/0123456789abcdef" }` | `any` | `null` | no |
 | expression | The math expression or search expression, if this is an expression instead of a single metric. In a search expression using double-quotes for an exact match, each double-quote mark must be escaped with a backslash. | `string` | `null` | no |
 | id | The Id of this time series. This Id can be used as part of a math expression. The Id must start with a lowercase letter. | `string` | `null` | no |
 | label | The label to display in the graph to represent this time series. | `string` | `null` | no |
