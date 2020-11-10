@@ -27,7 +27,7 @@ module "metric_widget" {
   source = ".."
   //...other parameters
   metrics = [
-    module.dynamodb_table1_metric.metric_properties_object
+    module.dynamodb_table1_metric.metric_array_object
   ]
 }
 
@@ -49,7 +49,7 @@ Below is an example for more complex use, e.g. you want the widget to show `Cons
 module "metric_widget" {
   source = ".."
   //...other parameters
-  metrics = module.dynamodb_write_metrics[*].metric_properties_object
+  metrics = module.dynamodb_write_metrics[*].metric_array_object
 }
 
 locals  {
@@ -130,6 +130,6 @@ No provider.
 
 | Name | Description |
 |------|-------------|
-| metric\_properties\_object | Metric array object that can be plugged into metrics array parameter widget |
+| metric\_array\_object | Metric array object that can be plugged into metrics array parameter in metric widget |
 
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
