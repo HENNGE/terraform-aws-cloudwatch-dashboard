@@ -21,7 +21,7 @@ To generate second JSON, supply only `expression`, `label` (optional), and `id` 
 
 ## Example
 
-```hcl-terraform
+```hcl
 module "metric_widget" {
   source = ".."
   //...other parameters
@@ -44,7 +44,7 @@ As we can see from the example, with this helper, the cryptic compact array form
 
 Below is an example for more complex use, e.g. you want the widget to show `ConsumedWriteCapacityUnits` from multiple dynamodb tables
 
-```hcl-terraform
+```hcl
 module "metric_widget" {
   source = ".."
   //...other parameters
@@ -73,7 +73,7 @@ module "dynamodb_write_metrics" {
 
 ### Example for metrics with multiple dimensions
 
-```hcl-terraform
+```hcl
 module "target_group_metric" {
   source     = "."
   namespace  = "AWS/ApplicationELB"
@@ -88,7 +88,7 @@ module "target_group_metric" {
 
 ### Example with expression metric
 
-```hcl-terraform
+```hcl
 module "expression" {
   source     = "."
   expression = "SUM(METRICS())"
