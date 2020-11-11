@@ -20,7 +20,7 @@ To generate first JSON, supply `namespace`, `metricName`, `dimensions` and other
 
 To generate second JSON, supply only `expression`, `label` (optional), and `id` (optional) parameters to the module.
 
-## Example
+## Examples
 
 ```hcl
 module "metric_widget" {
@@ -102,7 +102,9 @@ this module will produce `[ {"expression" : "SUM(METRICS())", "label" : "Express
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 ## Requirements
 
-No requirements.
+| Name | Version |
+|------|---------|
+| terraform | >= 0.13.0 |
 
 ## Providers
 

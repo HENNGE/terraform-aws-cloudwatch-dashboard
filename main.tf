@@ -1,3 +1,7 @@
+terraform {
+  required_version = ">= 0.13.0"
+}
+
 locals {
   dashboard_body = {
     widgets        = flatten(var.widgets)

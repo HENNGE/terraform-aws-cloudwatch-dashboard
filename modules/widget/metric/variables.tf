@@ -4,9 +4,8 @@ variable "accountId" {
   default     = null
 }
 
-//TODO
 variable "annotations" {
-  description = "To include an alarm or annotation in the widget, specify an annotations array. For more information about the format, see [Annotations Docs](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/CloudWatch-Dashboard-Body-Structure.html#CloudWatch-Dashboard-Properties-Annotation-Format)"
+  description = "To include an alarm or annotation in the widget, specify an annotations array. Specify it in terraform map format. For more information about the format, see [Annotations Docs](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/CloudWatch-Dashboard-Body-Structure.html#CloudWatch-Dashboard-Properties-Annotation-Format)"
   type        = any
   default     = null
 }
@@ -17,16 +16,14 @@ variable "liveData" {
   default     = null
 }
 
-//Take note when implementing, transform with conditional
 variable "legendPosition" {
   description = "Specify legend to determine where the legend for the lines on the graph is displayed. Possible values for position are `right`, `bottom`, and `hidden`."
   type        = string
   default     = null
 }
 
-//TODO
 variable "metrics" {
-  description = "Specify a metrics array to include one or more metrics (without alarms), math expressions, or search expressions. One `metrics` array can include 0–100 metrics and expressions."
+  description = "List. Specify a metrics array to include one or more metrics (without alarms), math expressions, or search expressions. Specify in terraform map format. One `metrics` array can include 0–100 metrics and expressions."
   type        = any
 }
 
@@ -65,9 +62,10 @@ variable "view" {
   default     = null
 }
 
-//TODO create yAxis object docs? or yAxis module?
 variable "yAxis" {
-  description = "Limits for the minimums and maximums of the y-axis, if this is a graph. This applies to every metric being graphed, unless specific metrics override it."
+  description = "Limits for the minimums and maximums of the y-axis, if this is a graph. This applies to every metric being graphed, unless specific metrics override it. Specify in terraform map format [YAxis format](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/CloudWatch-Dashboard-Body-Structure.html#CloudWatch-Dashboard-Properties-YAxis-Properties-Format)"
+  type        = any
+  default     = null
 }
 
 
@@ -95,4 +93,3 @@ variable "height" {
   type        = number
   default     = null
 }
-

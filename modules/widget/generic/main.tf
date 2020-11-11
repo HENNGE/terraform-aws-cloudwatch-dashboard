@@ -1,3 +1,7 @@
+terraform {
+  required_version = ">= 0.13.0"
+}
+
 locals {
   clean_properties = { for k, v in var.properties : k => v if v != null }
   widget_object = {

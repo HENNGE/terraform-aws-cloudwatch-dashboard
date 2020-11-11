@@ -1,4 +1,8 @@
-module "text_widget" {
+terraform {
+  required_version = ">= 0.13.0"
+}
+
+module "widget" {
   source = "../generic"
 
   type   = "text"

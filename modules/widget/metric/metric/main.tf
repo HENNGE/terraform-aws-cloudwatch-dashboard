@@ -1,3 +1,7 @@
+terraform {
+  required_version = ">= 0.13.0"
+}
+
 locals {
   dimensions_array = var.dimensions == null ? null : flatten([
     for dimensionName, dimensionValue in var.dimensions : [dimensionName, dimensionValue]
@@ -19,7 +23,7 @@ locals {
     var.namespace,
     var.metricName,
     local.dimensions_array,
-    local.clean_rendering_properties == {} ? null : local.rendering_properties
+    local.clean_rendering_properties == {} ? null : local.clean_rendering_properties
   ])
   clean_metric_array = [for item in local.metric_array : item if item != null]
 }
