@@ -23,7 +23,7 @@ variable "legendPosition" {
 }
 
 variable "metrics" {
-  description = "List. Specify a metrics array to include one or more metrics (without alarms), math expressions, or search expressions. Specify in terraform map format. One `metrics` array can include 0–100 metrics and expressions."
+  description = "List of list. Specify a metrics array to include one or more metrics (without alarms), math expressions, or search expressions. Specify in terraform map format. One `metrics` array can include 0–100 metrics and expressions."
   type        = any
 }
 

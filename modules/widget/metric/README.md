@@ -63,6 +63,7 @@ module "healthy_host_count_widget" {
 }
 
 module "healthy_host_count_metric_tokyo" {
+  # The child module
   source = "./metric"
 
   namespace = "AWS/ApplicationELB"
@@ -74,6 +75,7 @@ module "healthy_host_count_metric_tokyo" {
 }
 
 module "healthy_host_count_metric_singapore" {
+  # The child module
   source = "./metric"
 
   namespace = "AWS/ApplicationELB"
@@ -128,6 +130,7 @@ locals {
 }
 
 module "healthy_host_count_metric" {
+  # The child module
   source = "./metric"
   
   count       = length(local.monitored_items)
@@ -284,7 +287,7 @@ No provider.
 | height | The height of the widget in grid units. The default is 6. Valid Values: 1–1000. | `number` | `null` | no |
 | legendPosition | Specify legend to determine where the legend for the lines on the graph is displayed. Possible values for position are `right`, `bottom`, and `hidden`. | `string` | `null` | no |
 | liveData | Specify `true` to display live data in the widget. Live data is data published within the last minute that has not been fully aggregated. | `bool` | `null` | no |
-| metrics | List. Specify a metrics array to include one or more metrics (without alarms), math expressions, or search expressions. Specify in terraform map format. One `metrics` array can include 0–100 metrics and expressions. | `any` | n/a | yes |
+| metrics | List of list. Specify a metrics array to include one or more metrics (without alarms), math expressions, or search expressions. Specify in terraform map format. One `metrics` array can include 0–100 metrics and expressions. | `any` | n/a | yes |
 | period | The default period, in seconds, for all metrics in this widget. The period is the length of time represented by one data point on the graph. This default can be overridden within each metric definition. Use this parameter only for metric widgets. The default is 300. Valid Values: Any multiple of 60, with 60 as the minimum. | `number` | `null` | no |
 | region | The region of the metric. | `string` | n/a | yes |
 | stacked | Specify `true` to display the graph as a stacked line, or `false` to display as separate lines. This parameter is ignored if `view` is `singleValue`. | `bool` | `null` | no |
