@@ -57,8 +57,8 @@ module "healthy_host_count_widget" {
   metrics = [
     module.healthy_host_count_metric_tokyo.metric_array_object,
     module.healthy_host_count_metric_singapore.metric_array_object,
-    # If you wish to mix some other metrics with the oneliner you can do it just add the list entry below
-    # ["AWS/ApplicationELB", "HealthyHostCount", "TargetGroup", "targetgroup/tg-name-44/0123456789abcdef", "LoadBalancer", "app/load-balancer-44/0123456789abcdef"]
+    // If you wish to mix some other metrics with the oneliner you can do it just add the list entry below
+    // ["AWS/ApplicationELB", "HealthyHostCount", "TargetGroup", "targetgroup/tg-name-44/0123456789abcdef", "LoadBalancer", "app/load-balancer-44/0123456789abcdef"]
   ]
 }
 
