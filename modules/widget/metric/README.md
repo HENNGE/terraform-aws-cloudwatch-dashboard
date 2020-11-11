@@ -36,7 +36,9 @@ module "healthy_host_count_widget" {
 
 As we can see in the example above, metrics definition is a bit cryptic, but the advantage of using that format is you can copy paste it directly from Cloudwatch console into this module.
 
-For readability and documentation, we can also use a helper module to define those metrics in more readable way. See details in [metric/metric](./metric/README.md)
+For readability and documentation, we can also use a helper module to define those metrics in more readable way. See details in [metric/metric](./metric/README.md).
+
+Note that you can also mix the above format with the helper.
 
 ```hcl
 module "dashboard" {
@@ -55,6 +57,8 @@ module "healthy_host_count_widget" {
   metrics = [
     module.healthy_host_count_metric_tokyo.metric_array_object,
     module.healthy_host_count_metric_singapore.metric_array_object,
+    # If you wish to mix some other metrics with the oneliner you can do it just add the list entry below
+    # ["AWS/ApplicationELB", "HealthyHostCount", "TargetGroup", "targetgroup/tg-name-44/0123456789abcdef", "LoadBalancer", "app/load-balancer-44/0123456789abcdef"]
   ]
 }
 
