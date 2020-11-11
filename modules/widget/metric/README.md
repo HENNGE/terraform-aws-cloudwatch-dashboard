@@ -36,7 +36,7 @@ module "healthy_host_count_widget" {
 
 As we can see in the example above, metrics definition is a bit cryptic, but the advantage of using that format is you can copy paste it directly from Cloudwatch console into this module.
 
-For readability and documentation, we can also use a helper module to define those metrics in more readable way. See details in [metric/metric](./metric/README.md).
+For readability and documentation, we can also use a helper module to define those metrics in more readable way. See details in [metric/metric](./metric).
 
 Note that you can also mix the above format with the helper.
 
