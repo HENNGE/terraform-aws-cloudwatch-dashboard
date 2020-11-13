@@ -7,7 +7,8 @@ A widget of type explorer represents a metrics explorer widget. For more informa
 ```hcl
 module "metrics_explorer" {
   // This module
-  source = "."
+  source  = "HENNGE/cloudwatch-dashboard/aws//modules/widget/metrics_explorer"
+  version = "~> 1"
   
   metrics = [
     {

@@ -10,14 +10,16 @@ This example will create a simple metric widget in the dashboard to monitor the 
 
 ```hcl
 module "dashboard" {
-  source = "./../.."
+  source  = "HENNGE/cloudwatch-dashboard/aws"
+  version = "~> 1"
   name = "test-dashboard"
   widgets = [module.healthy_host_count_widget.widget_object]
 }
 
 module "healthy_host_count_widget" {
   # This module
-  source = "."
+  source  = "HENNGE/cloudwatch-dashboard/aws//modules/widget/metric"
+  version = "~> 1"
 
   title  = "Healthy Host Count in Target Group"
   region = "ap-northeast-1"
@@ -42,14 +44,17 @@ Note that you can also mix the above format with the helper.
 
 ```hcl
 module "dashboard" {
-  source = "./../.."
+  source  = "HENNGE/cloudwatch-dashboard/aws"
+  version = "~> 1"
+
   name = "test-dashboard"
   widgets = [module.healthy_host_count_widget.widget_object]
 }
 
 module "healthy_host_count_widget" {
   # This module
-  source = "."
+  source  = "HENNGE/cloudwatch-dashboard/aws//modules/widget/metric"
+  version = "~> 1"
 
   title  = "Healthy Host Count in Target Group"
   region = "ap-northeast-1"
@@ -64,7 +69,8 @@ module "healthy_host_count_widget" {
 
 module "healthy_host_count_metric_tokyo" {
   # The child module
-  source = "./metric"
+  source  = "HENNGE/cloudwatch-dashboard/aws//modules/widget/metric/metric"
+  version = "~> 1"
 
   namespace = "AWS/ApplicationELB"
   metricName = "HealthyHostCount"
@@ -76,7 +82,8 @@ module "healthy_host_count_metric_tokyo" {
 
 module "healthy_host_count_metric_singapore" {
   # The child module
-  source = "./metric"
+  source  = "HENNGE/cloudwatch-dashboard/aws//modules/widget/metric/metric"
+  version = "~> 1"
 
   namespace = "AWS/ApplicationELB"
   metricName = "HealthyHostCount"
@@ -98,14 +105,16 @@ Since Terraform 0.13, we can use `count` with modules so we can parameterize the
 
 ```hcl
 module "dashboard" {
-  source = "./../.."
+  source  = "HENNGE/cloudwatch-dashboard/aws"
+  version = "~> 1"
   name = "test-dashboard"
   widgets = [module.healthy_host_count_widget.widget_object]
 }
 
 module "healthy_host_count_widget" {
   # This module
-  source = "."
+  source  = "HENNGE/cloudwatch-dashboard/aws//modules/widget/metric"
+  version = "~> 1"
 
   title  = "Healthy Host Count in Target Group"
   region = "ap-northeast-1"
@@ -131,7 +140,8 @@ locals {
 
 module "healthy_host_count_metric" {
   # The child module
-  source = "./metric"
+  source  = "HENNGE/cloudwatch-dashboard/aws//modules/widget/metric/metric"
+  version = "~> 1"
   
   count       = length(local.monitored_items)
   namespace   = "AWS/ApplicationELB"
@@ -155,7 +165,8 @@ In this example we'll create a widget that gathers DynamoDB Global Tables in 2 r
 
 ```hcl
 module "dashboard" {
-  source = "./../.."
+  source  = "HENNGE/cloudwatch-dashboard/aws"
+  version = "~> 1"
 
   name = "test-dashboard"
   widgets = [
@@ -185,7 +196,8 @@ locals {
 
 module "dynamo_read_metric_widget" {
   # This module
-  source = "."
+  source  = "HENNGE/cloudwatch-dashboard/aws//modules/widget/metric"
+  version = "~> 1"
 
   title  = "DynamoDB Read Consumed Percentage Metrics"
   region = "ap-northeast-1"
@@ -218,7 +230,8 @@ module "dynamo_read_metric_widget" {
 
 module "dynamo_read_metrics_consumed" {
   # Child module (metric/metric)
-  source = "./metric"
+  source  = "HENNGE/cloudwatch-dashboard/aws//modules/widget/metric/metric"
+  version = "~> 1"
 
   count      = length(local.dynamodb)
   namespace  = "AWS/DynamoDB"
@@ -237,7 +250,8 @@ module "dynamo_read_metrics_consumed" {
 
 module "dynamo_read_metrics_provisioned" {
   # Child module (metric/metric)
-  source = "./metric"
+  source  = "HENNGE/cloudwatch-dashboard/aws//modules/widget/metric/metric"
+  version = "~> 1"
 
   count      = length(local.dynamodb)
   namespace  = "AWS/DynamoDB"
@@ -256,7 +270,8 @@ module "dynamo_read_metrics_provisioned" {
 
 module "dynamo_read_metrics_percent" {
   # Child module (metric/metric)
-  source = "./metric"
+  source  = "HENNGE/cloudwatch-dashboard/aws//modules/widget/metric/metric"
+  version = "~> 1"
 
   count      = length(local.dynamodb)
   expression = "100*(cons${local.dynamodb[count.index]["id"]} / prov${local.dynamodb[count.index]["id"]})/300"
