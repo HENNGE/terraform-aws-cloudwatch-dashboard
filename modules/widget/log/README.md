@@ -1,3 +1,7 @@
+# terraform-aws-cloudwatch-dashboard/modules/widget/log
+
+Creates Log Widget in Cloudwatch Dashboard.
+
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 ## Requirements
 

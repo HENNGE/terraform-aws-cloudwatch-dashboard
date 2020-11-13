@@ -1,3 +1,7 @@
+# terraform-aws-cloudwatch-dashboard/modules/widget/text
+
+Create a text markdown widget object.
+
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 ## Requirements
 

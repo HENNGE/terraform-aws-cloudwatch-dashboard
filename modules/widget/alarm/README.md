@@ -1,4 +1,4 @@
-# terraform-aws-cloudwatch-dashboard/widget/alarm
+# terraform-aws-cloudwatch-dashboard/modules/widget/alarm
 
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 ## Requirements

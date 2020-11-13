@@ -1,3 +1,9 @@
+# terraform-aws-cloudwatch-dashboard/modules/widget/generic
+
+This module will process input into clean Object and JSON object for Cloudwatch Dashboard Widget.
+
+Use this module if the widget is unsupported.
+
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 ## Requirements
 
