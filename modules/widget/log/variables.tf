@@ -10,7 +10,7 @@ variable "title" {
 }
 
 variable "query" {
-  description = "Contains the CloudWatch Logs Insights query function. The query string starts with the names of the log groups that are to be queried. You must pre-pend each log group name with SOURCE. Separate multiple log groups with a pipe character (|). Add another pipe character after the list of log groups, and then specify the query syntax. Separate each line in the query syntax with `\\n|`. [More Documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/CloudWatch-Dashboard-Body-Structure.html#CloudWatch-Dashboard-Properties-Log-Widget-Object)"
+  description = "Contains the CloudWatch Logs Insights query function. The query string starts with the names of the log groups that are to be queried. You must pre-pend each log group name with SOURCE. Separate multiple log groups with a pipe character (|). Add another pipe character after the list of log groups, and then specify the query syntax. Separate each line in the query syntax with \\n|. [More Documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/CloudWatch-Dashboard-Body-Structure.html#CloudWatch-Dashboard-Properties-Log-Widget-Object)"
   type        = string
 }
 

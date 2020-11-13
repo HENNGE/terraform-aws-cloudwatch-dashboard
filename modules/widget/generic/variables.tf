@@ -1,5 +1,5 @@
 variable "type" {
-  description = "The type of widget. Valid Values: `metric | text | log | alarm`."
+  description = "The type of widget. Valid Values: `metric` | `text` | `log` | `alarm`."
   type        = string
 }
 
