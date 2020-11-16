@@ -11,11 +11,15 @@ jobs:
     - uses: actions/checkout@v1
     - name: Run pre-commit test
       run: |
+        sudo apt-get install python3-pip gawk
         curl https://pre-commit.com/install-local.py | python3 -
+        # Terraform Docs
         curl -Lo ./terraform-docs https://github.com/terraform-docs/terraform-docs/releases/download/v0.9.1/terraform-docs-v0.9.1-$(uname | tr '[:upper:]' '[:lower:]')-amd64
         chmod +x ./terraform-docs
         sudo mv ./terraform-docs /usr/bin/terraform-docs
+        # Tflint
+        curl -L "$(curl -s https://api.github.com/repos/terraform-linters/tflint/releases/latest | grep -o -E "https://.+?_linux_amd64.zip")" > tflint.zip && unzip tflint.zip && rm tflint.zip && sudo mv tflint /usr/bin/
+        # Run pre-commit
         /home/runner/bin/pre-commit --version
         terraform-docs --version
         /home/runner/bin/pre-commit run -a
-
