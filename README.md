@@ -10,7 +10,7 @@ This modules is trying to modularize JSON input for cloudwatch dashboard resourc
 
 ## Terraform versions
 
-Supported terraform versions are only > 0.13.
+Supported terraform versions are only >= 0.13.
 
 ## Example
 
