@@ -4,7 +4,7 @@ terraform {
 
 locals {
   legend = var.legendPosition == null ? null : {
-    legend = { position : var.legendPosition }
+    position : var.legendPosition
   }
 }
 
