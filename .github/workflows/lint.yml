@@ -8,18 +8,19 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v1
-    - name: Run pre-commit test
+    - uses: actions/checkout@v3
+    - uses: actions/setup-python@v4
+      with:
+        python-version: 3.x
+    - name: Install pre-commit dependency - terraform-docs
       run: |
-        sudo apt-get install python3-pip gawk
-        curl https://pre-commit.com/install-local.py | python3 -
-        # Terraform Docs
-        curl -Lo ./terraform-docs https://github.com/terraform-docs/terraform-docs/releases/download/v0.9.1/terraform-docs-v0.9.1-$(uname | tr '[:upper:]' '[:lower:]')-amd64
-        chmod +x ./terraform-docs
-        sudo mv ./terraform-docs /usr/bin/terraform-docs
-        # Tflint
-        curl -L "$(curl -s https://api.github.com/repos/terraform-linters/tflint/releases/latest | grep -o -E "https://.+?_linux_amd64.zip")" > tflint.zip && unzip tflint.zip && rm tflint.zip && sudo mv tflint /usr/bin/
-        # Run pre-commit
-        /home/runner/bin/pre-commit --version
-        terraform-docs --version
-        /home/runner/bin/pre-commit run -a
+        TF_DOCS_VER="v0.9.1"
+        pushd /tmp
+          curl -Lo ./terraform-docs.tar.gz https://github.com/terraform-docs/terraform-docs/releases/download/${TF_DOCS_VER}/terraform-docs-${TF_DOCS_VER}-$(uname)-amd64.tar.gz && tar -xzf terraform-docs.tar.gz && chmod +x terraform-docs && sudo mv terraform-docs /usr/bin/
+        popd
+    - name: Install pre-commit dependency - tflint
+      uses: terraform-linters/setup-tflint@v2
+    - name: Run pre-commit test
+      uses: pre-commit/action@v3.0.0
+      with:
+        extra_args: --color=always --show-diff-on-failure --all-files
